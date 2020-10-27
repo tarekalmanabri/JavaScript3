@@ -1,0 +1,21 @@
+body {
+    display: flex;
+}
+
+div {
+    text-align: center;
+    margin: auto;
+}
+
+button {
+    background-color: crimson;
+    color: darkorange;
+    padding: 20px;
+    width: 150px;
+    border-radius: 4px;
+}
+
+ul {
+    display: flex;
+    flex-direction: column-reverse;
+}
