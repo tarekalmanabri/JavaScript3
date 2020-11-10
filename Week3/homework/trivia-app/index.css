@@ -1,0 +1,43 @@
+body {
+  display: flex;
+}
+
+.main {
+  margin: auto;
+}
+
+.answer {
+  margin: 0;
+  padding: 10px;
+  font-size: 12px;
+  display: none;
+}
+
+.hidden {
+  margin: 0;
+  padding: 10px;
+  font-size: 12px;
+  display: inline;
+}
+
+.question {
+  cursor: pointer;
+  padding: 10px;
+  margin: 2px;
+  background-color: gray;
+  font-size: 12px;
+}
+
+.question:hover {
+  background-color: darkgray;
+}
+
+
+/* .question:first-child {
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.question:last-child {
+  border-bottom-left-radius: 10px;
+} */
