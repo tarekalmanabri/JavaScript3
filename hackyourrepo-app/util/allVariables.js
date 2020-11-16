@@ -5,6 +5,9 @@ document.body.innerHTML += `<div class="container">
       <option selected disabled>---Choose---</option>
     </select>
 </header>
+<div id="err-div" class="changeable">
+  <p>Network request failed</p>
+</div>
 <section class="mainSection" id="mainSection">
   <div class="main-div">
     <section class="repoInfo" id="repoInfo">
@@ -41,8 +44,10 @@ document.body.innerHTML += `<div class="container">
     </div>
   </div>
 </section>
-</div>`
+</div>`;
 
+export const errDiv = document.getElementById('err-div');
+export const mainSection = document.getElementById('mainSection');
 export const repositorySelect = document.getElementById('select');
 export const ul = document.getElementById('ul');
 export const repositoryName = document.getElementById('repositoryName');

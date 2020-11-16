@@ -97,6 +97,28 @@ li {
   outline: 0;
 }
 
+.button:hover {
+  background-color: cadetblue;
+}
+
+.active {
+  background-color: cadetblue;
+}
+
+.err-div {
+  background-color: #f8d7da;
+  color: grey;
+  display: block;
+}
+
+.err-div p {
+  margin: 0;
+  padding: 20px;
+}
+
+.changeable {
+  display: none;
+}
 @media (max-width: 768px) {
   .container {
     max-width: 100%;

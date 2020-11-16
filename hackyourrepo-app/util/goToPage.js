@@ -13,7 +13,11 @@ export function goToPage(newPage) {
   const start = newPage * 5;
   const end = start + 5;
   const itemsToShow = paginationItems.slice(start, end);
-
+  const allButtons = document.querySelectorAll('.button');
+  allButtons.forEach((btn) => {
+    btn.classList.remove('active');
+  });
+  allButtons[newPage].classList.add('active');
   // show next when more than one page and when we're not on the last page
   if (numberOfPages > 1 && numberOfPages !== newPage + 1) {
     next.style.display = 'block';

@@ -17,7 +17,6 @@ export function createPageNumbersBtns() {
     const button = document.createElement('button');
     button.setAttribute('class', 'button');
     button.innerText = i + 1;
-
     paginationNumbers.appendChild(button);
     button.addEventListener('click', () => goToPage(i));
   }

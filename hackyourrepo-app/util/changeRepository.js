@@ -12,14 +12,14 @@ export function changeRepository(event) {
   fillRepositoryInfo(repository);
 
   fetch(`https://api.github.com/repos/HackYourFuture/${option}/contributors`)
-    .then((res) => {
-      res.json().then((contributors) => {
-        updatePaginationItems(contributors);
-        // sets the pagination numbers
-        createPageNumbersBtns(contributors);
-        goToPage(0);
-      });
+    .then((res) => res.json())
+    .then((contributors) => {
+      updatePaginationItems(contributors);
+      // sets the pagination numbers
+      createPageNumbersBtns(contributors);
+      goToPage(0);
     })
+
     .catch((err) => {
       console.log(err);
     });

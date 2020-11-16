@@ -11,56 +11,47 @@ document.body.innerHTML += `
 const questions = document.getElementById('questions');
 
 async function trivia() {
-  try {
-    const res = await fetch('https://opentdb.com/api.php?amount=5&category=9&difficulty=easy')
+  const res = await fetch(
+    'https://opentdb.com/api.php?amount=5&category=9&difficulty=easy',
+  );
+  const json = await res.json();
+  let resultArray = json.results;
+  resultArray.forEach((element) => {
+    const question = document.createElement('p');
+    const answer = document.createElement('span');
 
-    const json = await res.json();
+    question.innerText = decodeHtml(element.question);
+    answer.innerText = decodeHtml(element.correct_answer);
+    question.classList.add('question');
+    answer.classList.add('answer');
 
-    let resultArray = json.results;
+    question.addEventListener('click', () => {
+      let className = answer.classList;
+      let result = className.toggle('hidden');
 
-
-    console.log(json.results)
-
-    resultArray.forEach(element => {
-
-      const question = document.createElement('p');
-      const answer = document.createElement('span');
-
-      question.innerText = decodeHtml(element.question);
-      answer.innerText = decodeHtml(element.correct_answer);
-      question.classList.add('question')
-      answer.classList.add('answer')
-
-      question.addEventListener('click', function() {
-        let className = answer.getAttribute("class")
-        if (className == 'answer') {
-          answer.classList.remove('answer');
-          answer.classList.add('hidden')
-        } else {
-          answer.classList.remove('hidden');
-          answer.classList.add('answer')
-        }
-      })
-
-      questions.appendChild(question);
-      questions.appendChild(answer);
+      if (result) {
+        answer.classList.add('hidden');
+      } else {
+        answer.classList.add('answer');
+      }
     });
-
-    return json
-  } catch (error) {
-    console.log(error)
-  }
+    questions.appendChild(question);
+    questions.appendChild(answer);
+  });
+  return json;
 }
-
-trivia()
-
+try {
+  trivia();
+} catch (error) {
+  console.log(error);
+}
 /**
  * https://stackoverflow.com/a/7394787
- * 
- * @param {*} html 
+ *
+ * @param {*} html
  */
 function decodeHtml(html) {
-  const txt = document.createElement("textarea");
+  const txt = document.createElement('textarea');
   txt.innerHTML = html;
   return txt.value;
 }
